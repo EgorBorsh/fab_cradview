@@ -1,6 +1,8 @@
 package com.smollvile.fabcardview.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         List<Notes> listNotes = notesDao.queryBuilder().list();
         for (int i = 0; i < listNotes.size(); i++) {
             String txtNotes = listNotes.get(i).getTxtNotes();
-            String txtDate = listNotes.get(i).getTxtNotes();
+            String txtDate = listNotes.get(i).getTxtDate();
 
             NotesItem notesItem = new NotesItem(txtNotes, txtDate);
             list.add(notesItem);
@@ -66,9 +68,16 @@ public class MainActivity extends AppCompatActivity {
         recycler.setAdapter(adapter);
     }
 
+    @SuppressLint("ResourceAsColor")
     private void initFAB() {
         fab = (FloatingActionButton) findViewById(R.id.fab);
-        Intent intent = new Intent(MainActivity.this, AddActivity.class);
-        startActivity(intent);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
