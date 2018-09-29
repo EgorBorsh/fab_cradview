@@ -3,7 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="fab">#ef13641c</color>
+    <color name="fab">#bf6403</color>
     <color name="card_view_background">#FFFFFF</color>
     <color name="text_card_notes">#000000</color>
+    <color name="save_button">#bf6403</color>
 </resources>

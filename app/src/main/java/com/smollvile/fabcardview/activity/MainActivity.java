@@ -1,5 +1,6 @@
 package com.smollvile.fabcardview.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -67,5 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initFAB() {
         fab = (FloatingActionButton) findViewById(R.id.fab);
+        Intent intent = new Intent(MainActivity.this, AddActivity.class);
+        startActivity(intent);
     }
 }
