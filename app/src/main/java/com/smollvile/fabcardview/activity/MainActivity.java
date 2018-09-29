@@ -1,4 +1,4 @@
-package com.smollvile.fabcardview;
+package com.smollvile.fabcardview.activity;
 
 import android.support.v7.app.AppCompatActivity;
 

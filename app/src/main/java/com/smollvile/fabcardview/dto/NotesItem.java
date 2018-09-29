@@ -1,11 +1,11 @@
 package com.smollvile.fabcardview.dto;
 
 
-public class Notes {
+public class NotesItem {
     private String notes;
     private String date;
 
-    public Notes(String notes, String date) {
+    public NotesItem(String notes, String date) {
         this.notes = notes;
         this.date = date;
     }

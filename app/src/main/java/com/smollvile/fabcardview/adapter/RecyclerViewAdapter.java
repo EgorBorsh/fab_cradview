@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.smollvile.fabcardview.R;
-import com.smollvile.fabcardview.dto.Notes;
+import com.smollvile.fabcardview.dto.NotesItem;
 import com.smollvile.fabcardview.listener.RecyclerItemListener;
 
 import java.util.ArrayList;
@@ -17,11 +17,11 @@ import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewHolder> {
 
-    List<Notes> list = new ArrayList<>();
+    List<NotesItem> list = new ArrayList<>();
     Context context;
     RecyclerItemListener listener;
 
-    public RecyclerViewAdapter(List<Notes> list, Context context, RecyclerItemListener listener) {
+    public RecyclerViewAdapter(List<NotesItem> list, Context context, RecyclerItemListener listener) {
         this.list = list;
         this.context = context;
         this.listener = listener;
@@ -64,7 +64,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 
-    private Notes getNotes(int position) {
+    private NotesItem getNotes(int position) {
         return list.get(position);
     }
 }
