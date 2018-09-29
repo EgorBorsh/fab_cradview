@@ -7,4 +7,5 @@
     <dimen name="card_view_text_notes">15dp</dimen>
     <dimen name="card_view_text_padding">5dp</dimen>
     <dimen name="card_view_text_date">11dp</dimen>
+    <dimen name="edit_margin_button">5dp</dimen>
 </resources>

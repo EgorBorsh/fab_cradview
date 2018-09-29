@@ -7,4 +7,5 @@
     <color name="card_view_background">#FFFFFF</color>
     <color name="text_card_notes">#000000</color>
     <color name="save_button">#bf6403</color>
+    <color name="delete_button">#df9541</color>
 </resources>

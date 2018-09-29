@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
 
 import com.smollvile.fabcardview.App;
@@ -24,6 +25,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String KEY_NOTES = "NOTES_KEY";
+    private static final String KEY_POS = "POS_KEY";
 
     FloatingActionButton fab;
     RecyclerView recycler;
@@ -54,14 +58,19 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < listNotes.size(); i++) {
             String txtNotes = listNotes.get(i).getTxtNotes();
             String txtDate = listNotes.get(i).getTxtDate();
+            Long id = listNotes.get(i).getId();
 
-            NotesItem notesItem = new NotesItem(txtNotes, txtDate);
+            NotesItem notesItem = new NotesItem(txtNotes, txtDate, id);
             list.add(notesItem);
         }
         adapter = new RecyclerViewAdapter(list, this, new RecyclerItemListener() {
             @Override
             public void onClickItem(View v, NotesItem notesItem) {
 
+                Intent intent = new Intent(MainActivity.this, EditActivity.class);
+                intent.putExtra(KEY_POS, notesItem.getId());
+                intent.putExtra(KEY_NOTES, notesItem.getNotes());
+                startActivity(intent);
             }
         });
 
@@ -79,5 +88,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return false;
     }
 }

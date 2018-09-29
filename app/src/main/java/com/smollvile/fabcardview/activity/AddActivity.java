@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import com.smollvile.fabcardview.dao.NotesDao;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class AddActivity extends AppCompatActivity {
 
@@ -49,6 +51,8 @@ public class AddActivity extends AppCompatActivity {
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd:MM:yyyy HH:mm:ss");
                     String strDate = simpleDateFormat.format(new Date());
                     notes.setTxtDate(strDate);
+                    List<Notes> list = notesDao.queryBuilder().list();
+                    notes.setId((long) (list.size()+1));
                     notesDao.insert(notes);
                     Intent intent = new Intent(AddActivity.this, MainActivity.class);
                     startActivity(intent);
@@ -62,5 +66,10 @@ public class AddActivity extends AppCompatActivity {
 
     private void initEditText() {
         editNotes = (EditText) findViewById(R.id.edit_notes);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return false;
     }
 }
